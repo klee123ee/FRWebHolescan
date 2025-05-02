@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册</title>
+    <link rel="stylesheet" href="/static/layui/css/register.css">
+</head>
+<body style="background-image: url('/static/layui/images/register.png'); background-size: cover;">
+    <div class="container">
+        <h1>风刃Web漏洞扫描系统注册</h1>
+        
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">用户名：</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm_password">确认密码：</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            
+            <button type="submit">注册</button>
+        </form>
+        
+        <div class="login-link">
+            <p>已有账号？<a href="{{ url_for('auth.login') }}">立即登录</a></p>
+        </div>
+        <div class="copyright" style="color: white;">
+            &copy; 2025 风刃Web漏洞扫描系统 | 采用 <a href="https://layui.dev/" target="_blank" style="color: aqua;">Layui框架</a> 开发
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作日志 - 风刃Web漏洞扫描系统</title>
+    <!-- 引入 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 引入Layui CSS -->
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/layui/css/self.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+
+<body class="layui-layout-body">
+    <!-- 整体布局 -->
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部区域 -->
+        <div class="layui-header">
+            <div class="layui-logo">
+                <i class="fas fa-shield-alt"></i> 风刃Web漏洞扫描系统
+            </div>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="/static/images/avatar.png" class="layui-nav-img">
+                        <span class="user-name">{{ session['username'] }}</span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="{{ url_for('user.profile') }}"><i class="fas fa-user"></i> 基本资料</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i> 退出</a></li>
+            </ul>
+        </div>
+
+        <!-- 左侧导航菜单 -->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree">
+                    <!-- 个人中心 -->
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;"><i class="fas fa-user-circle"></i> 个人中心</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="{{ url_for('user.profile') }}"><i class="fas fa-user"></i> 基本资料</a></dd>
+                            <dd class="layui-this"><a href="{{ url_for('user.log') }}"><i class="fas fa-history"></i> 操作日志</a></dd>
+                            <dd><a href="{{ url_for('auth.resetpassword') }}"><i class="fas fa-lock"></i> 修改密码</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 主体内容区域 -->
+        <div class="layui-body">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <i class="fas fa-history"></i> 操作日志
+                    <div class="layui-inline layui-card-header-right">
+                        <a href="{{ url_for('main.index') }}" class="layui-btn layui-btn-primary layui-btn-sm" style="color: #fff;">
+                            <i class="fas fa-tachometer-alt" style="color: #fff;"></i> 返回仪表盘
+                        </a>
+                    </div>
+                    <button class="layui-btn layui-btn-sm" lay-submit lay-filter="searchLog" style="background: #ff5722">清空所有日志</button>
+                </div>
+                <div class="layui-card-body">
+                    <table class="layui-table" lay-filter="logTable">
+                        <thead>
+                            <tr>
+                                <th lay-data="{field:'id', width:80, sort: true}">操作ID</th>
+                                <th lay-data="{field:'time', width:180, sort: true}">操作时间</th>
+                                <th lay-data="{field:'type', width:120}">操作类型</th>
+                                <th lay-data="{field:'content'}">操作内容</th>
+                                <th lay-data="{field:'ip', width:150}">IP地址</th>
+                                <th lay-data="{field:'status', width:100}">状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in logs %}
+                            <tr>
+                                <td>{{ log.oper_id }}</td>
+                                <td>{{ log.oper_time }}</td>
+                                <td>{{ log.oper_type }}</td>
+                                <td>{{ log.oper_content }}</td>
+                                <td>{{ log.oper_ip }}</td>
+                                <td>{{ log.oper_status }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div id="logPage"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部区域 -->
+        <div class="layui-footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/your-repo" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://docs.your-site.com" target="_blank"><i class="fas fa-book"></i> 文档</a>
+                    <a href="https://forum.your-site.com" target="_blank"><i class="fas fa-comments"></i> 社区</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 风刃Web漏洞扫描系统 | 采用 <a href="https://layui.dev/" target="_blank">Layui框架</a> 开发
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入Layui JS -->
+    <script src="/static/layui/js/layui.js"></script>
+    <script src="/static/layui/js/log.js"></script>
+</div>
+</body>
+</html>

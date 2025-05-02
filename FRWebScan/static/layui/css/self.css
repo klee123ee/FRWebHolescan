@@ -1,0 +1,616 @@
+/* 全局样式 */
+:root {
+    /* 主色调 - 深蓝色系 */
+    --primary-color: #2B6CB0;
+    --primary-light: #4299E1;
+    --primary-dark: #2C5282;
+    --primary-bg: #EBF8FF;
+    
+    /* 次要色调 - 青色系 */
+    --secondary-color: #319795;
+    --secondary-light: #4FD1C5;
+    --secondary-dark: #285E61;
+    --secondary-bg: #E6FFFA;
+    
+    /* 危险色 - 红色系 */
+    --danger-color: #E53E3E;
+    --danger-light: #FC8181;
+    --danger-dark: #C53030;
+    --danger-bg: #FFF5F5;
+    
+    /* 警告色 - 橙色系 */
+    --warning-color: #DD6B20;
+    --warning-light: #F6AD55;
+    --warning-dark: #C05621;
+    --warning-bg: #FFFAF0;
+    
+    /* 成功色 - 绿色系 */
+    --success-color: #38A169;
+    --success-light: #68D391;
+    --success-dark: #2F855A;
+    --success-bg: #F0FFF4;
+    
+    /* 文字颜色 */
+    --text-primary: #2D3748;
+    --text-secondary: #4A5568;
+    --text-light: #718096;
+    --text-lighter: #A0AEC0;
+    
+    /* 背景颜色 */
+    --bg-color: #F7FAFC;
+    --bg-light: #FFFFFF;
+    --bg-dark: #EDF2F7;
+    --bg-darker: #E2E8F0;
+    
+    /* 边框颜色 */
+    --border-color: #E2E8F0;
+    --border-light: #EDF2F7;
+    --border-dark: #CBD5E0;
+    
+    /* 阴影 */
+    --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    /* 过渡效果 */
+    --transition: all 0.2s ease-in-out;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* 头部样式优化 */
+.layui-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.layui-logo {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.layui-logo i {
+    margin-right: 8px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* 导航菜单样式优化 */
+.layui-side {
+    background: var(--primary-dark);
+    box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.1);
+    border-right: 1px solid var(--border-color);
+}
+
+/* 主菜单样式 */
+.layui-nav-tree .layui-nav-item > a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.layui-nav-tree .layui-nav-item > a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.layui-nav-tree .layui-nav-item > a i {
+    color: rgba(255, 255, 255, 0.9);
+    margin-right: 8px;
+}
+
+/* 子菜单样式 */
+.layui-nav-tree .layui-nav-item a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+    font-weight: 500;
+    padding: 12px 15px;
+}
+
+.layui-nav-tree .layui-nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.layui-nav-tree .layui-nav-itemed > a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-left: 3px solid #fff;
+}
+
+.layui-nav-tree .layui-nav-item a i {
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 8px;
+}
+
+.layui-nav-tree .layui-nav-item a:hover i {
+    color: #fff;
+}
+
+.layui-nav-tree .layui-nav-itemed > a i {
+    color: #fff;
+}
+
+/* 卡片样式优化 */
+.dashboard-card {
+    background: var(--bg-light);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--primary-light);
+}
+
+.dashboard-card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.dashboard-card-title {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.dashboard-card-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.dashboard-card-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.dashboard-card-header i {
+    margin-right: 8px;
+    color: var(--primary-color);
+    opacity: 0.9;
+}
+
+/* 图表容器样式 */
+#asset-stats-chart,
+#vuln-stats-chart,
+#top10-vuln-chart,
+#plugin-type-chart {
+    background: var(--bg-light);
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+}
+
+/* 底部样式优化 */
+.layui-footer {
+    background: var(--bg-light);
+    color: var(--text-secondary);
+    box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    margin-right: 20px;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-links i {
+    margin-right: 5px;
+    opacity: 0.8;
+}
+
+/* 响应式优化 */
+@media screen and (max-width: 768px) {
+    .layui-col-md3 {
+        width: 50%;
+    }
+    
+    .layui-col-md6 {
+        width: 100%;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        margin-bottom: 10px;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dashboard-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* 漏洞等级颜色 */
+.vuln-level-high {
+    color: var(--danger-color);
+    font-weight: 600;
+    background-color: var(--danger-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.vuln-level-medium {
+    color: var(--warning-color);
+    font-weight: 600;
+    background-color: var(--warning-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.vuln-level-low {
+    color: var(--success-color);
+    font-weight: 600;
+    background-color: var(--success-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* 表格样式优化 */
+.layui-table {
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.layui-table thead tr {
+    background-color: var(--bg-dark);
+}
+
+.layui-table tbody tr:hover {
+    background-color: var(--primary-bg);
+}
+
+/* 按钮样式优化 */
+.layui-btn {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.layui-btn-primary {
+    background-color: var(--primary-color);
+}
+
+.layui-btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.layui-btn-danger {
+    background-color: var(--danger-color);
+}
+
+.layui-btn-danger:hover {
+    background-color: var(--danger-dark);
+}
+
+.layui-btn-warm {
+    background-color: var(--warning-color);
+}
+
+.layui-btn-warm:hover {
+    background-color: var(--warning-dark);
+}
+
+.layui-btn-normal {
+    background-color: var(--success-color);
+}
+
+.layui-btn-normal:hover {
+    background-color: var(--success-dark);
+}
+
+/* iframe样式 */
+.layui-iframe {
+    width: 100%;
+    height: calc(100vh - 120px);
+    border: none;
+    background-color: #f2f2f2;
+}
+
+/* 调整标签页内容区域的内边距 */
+.layui-tab-content {
+    padding: 0;
+}
+
+/* 调整标签页内容区域的高度 */
+.layui-body {
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f2f2;
+    margin: 0;
+    height: 100%;
+    overflow: auto;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.dashboard-card-header {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.layui-form {
+    margin-bottom: 15px;
+}
+
+.layui-table {
+    margin-top: 15px;
+}
+
+.layui-layout-admin .layui-body {
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.layui-layout-admin .layui-side {
+    overflow-y: auto;
+}
+
+layui-layout-admin .layui-logo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dashboard-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    margin-bottom: 15px;
+}
+
+.dashboard-card-icon {
+    font-size: 24px;
+    color: #1E9FFF;
+    margin-bottom: 10px;
+}
+
+.dashboard-card-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.dashboard-card-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.vuln-level-high {
+    color: #FF5722;
+}
+
+.footer-content {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #1E9FFF;
+}
+
+.copyright {
+    color: #999;
+    font-size: 12px;
+}
+
+.layui-menu {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    border-radius: 2px;
+}
+
+.layui-menu-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.layui-menu-item:hover {
+    background: #f2f2f2;
+}
+
+/* 标签页关闭按钮样式 */
+.layui-tab-close {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 50%;
+    color: #999;
+    transition: all .3s;
+}
+
+.layui-tab-close:hover {
+    background-color: #FF5722;
+    color: #fff;
+}
+
+.layui-tab-title li {
+    position: relative;
+    padding-right: 20px !important;
+}
+
+/* 仪表盘标签页特殊处理 */
+.layui-tab-title li[lay-id="dashboard"] {
+    padding-right: 10px !important;
+}
+
+/* 标签页图标样式 */
+.layui-tab-title li i:first-child {
+    margin-right: 5px;
+}
+
+/* 导航菜单样式 */
+.layui-nav-tree .layui-nav-child {
+    background-color: #2F4056 !important;
+}
+
+.layui-nav-tree .layui-nav-child dd.layui-this,
+.layui-nav-tree .layui-nav-child dd.layui-this a,
+.layui-nav-tree .layui-this>a {
+    background-color: #009688 !important;
+}
+
+/* 标签页样式 */
+.layui-tab {
+    margin: 0;
+    height: 100%;
+}
+
+.layui-tab-content {
+    padding: 0;
+    height: calc(100% - 41px);
+}
+
+.layui-tab-item {
+    height: 100%;
+}
+
+.layui-tab-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 卡片样式 */
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dashboard-card-icon {
+    font-size: 24px;
+    color: #009688;
+    margin-bottom: 10px;
+}
+
+.dashboard-card-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.dashboard-card-value {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.dashboard-card-header {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* 底部样式 */
+.footer-content {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-links {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    color: #666;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #009688;
+}
+
+.copyright {
+    color: #999;
+    font-size: 12px;
+}
+
+.copyright a {
+    color: #009688;
+    text-decoration: none;
+}
